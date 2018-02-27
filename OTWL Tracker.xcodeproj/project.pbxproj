@@ -7,23 +7,86 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FDA01A15ADBC88C6427F2ED /* Pods_OTWL_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B0222BA3E7325E061330416 /* Pods_OTWL_Tracker.framework */; };
+		9B09B1E6203D4BE500D27CAE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B09B1E5203D4BE400D27CAE /* GoogleService-Info.plist */; };
+		9B09B1E8203FD7A900D27CAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B09B1E7203FD7A900D27CAE /* UserNotifications.framework */; };
+		9B09B1EB203FEB4300D27CAE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09B1EA203FEB4300D27CAE /* Notifications.swift */; };
+		9B09B1ED203FEE6E00D27CAE /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09B1EC203FEE6E00D27CAE /* RealmService.swift */; };
+		9B8C6A5A2032F80A00D8C424 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C6A592032F80A00D8C424 /* SingupViewController.swift */; };
+		9B9248572036FA2500836A27 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9248542036FA2400836A27 /* TableViewCell.swift */; };
+		9B9248582036FA2500836A27 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9248552036FA2400836A27 /* Helpers.swift */; };
+		9B9248592036FA2500836A27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9248562036FA2500836A27 /* ViewController.swift */; };
+		9B92485C2036FD0600836A27 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B92485B2036FD0600836A27 /* HeaderCell.swift */; };
 		9B9E03332032E1EE001EDB50 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03322032E1EE001EDB50 /* AppDelegate.swift */; };
-		9B9E03352032E1EE001EDB50 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03342032E1EE001EDB50 /* ViewController.swift */; };
+		9B9E03352032E1EE001EDB50 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03342032E1EE001EDB50 /* SignInViewController.swift */; };
 		9B9E03382032E1EE001EDB50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9E03362032E1EE001EDB50 /* Main.storyboard */; };
 		9B9E033B2032E1EE001EDB50 /* OTWL_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03392032E1EE001EDB50 /* OTWL_Tracker.xcdatamodeld */; };
 		9B9E033D2032E1EE001EDB50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B9E033C2032E1EE001EDB50 /* Assets.xcassets */; };
 		9B9E03402032E1EE001EDB50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B9E033E2032E1EE001EDB50 /* LaunchScreen.storyboard */; };
+		9B9E03482032E41B001EDB50 /* GradientLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03472032E41B001EDB50 /* GradientLayerView.swift */; };
+		9B9E03532032E443001EDB50 /* ShowAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E034A2032E442001EDB50 /* ShowAlertView.swift */; };
+		9B9E03542032E443001EDB50 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E034B2032E442001EDB50 /* RoundedView.swift */; };
+		9B9E03552032E443001EDB50 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E034C2032E442001EDB50 /* UIColor.swift */; };
+		9B9E03562032E443001EDB50 /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E034D2032E442001EDB50 /* NavigationControllers.swift */; };
+		9B9E03572032E443001EDB50 /* AppLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E034E2032E442001EDB50 /* AppLoader.swift */; };
+		9B9E03582032E443001EDB50 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E034F2032E443001EDB50 /* RoundedButton.swift */; };
+		9B9E03592032E443001EDB50 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03502032E443001EDB50 /* RoundedTextField.swift */; };
+		9B9E035A2032E443001EDB50 /* UserDefaultDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03512032E443001EDB50 /* UserDefaultDetails.swift */; };
+		9B9E035B2032E443001EDB50 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E03522032E443001EDB50 /* RoundedImage.swift */; };
+		9B9E035E2032E457001EDB50 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9E035D2032E457001EDB50 /* DataManager.swift */; };
+		9BCF1B5D2043DF1F0073CECF /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCF1B5C2043DF1F0073CECF /* ProfileModel.swift */; };
+		9BEB343E2034042600E5A0C6 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB343D2034042600E5A0C6 /* NotificationsViewController.swift */; };
+		9BEB34402034044A00E5A0C6 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB343F2034044A00E5A0C6 /* NotificationCell.swift */; };
+		9BEB34422034119D00E5A0C6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB34412034119C00E5A0C6 /* ProfileViewController.swift */; };
+		9BEB3447203454D700E5A0C6 /* TrackingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB3446203454D700E5A0C6 /* TrackingViewController.swift */; };
+		9BEB34492035802000E5A0C6 /* TrackingCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB34482035802000E5A0C6 /* TrackingCellTableViewCell.swift */; };
+		9BEB344B2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB344A2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift */; };
+		9BEB344D2035C8E000E5A0C6 /* StagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB344C2035C8E000E5A0C6 /* StagesCell.swift */; };
+		9BEB345B2036EC2900E5A0C6 /* StagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEB345A2036EC2900E5A0C6 /* StagesTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		167C334B81B53DB7D1EEF950 /* Pods-OTWL Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTWL Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-OTWL Tracker/Pods-OTWL Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		8B0222BA3E7325E061330416 /* Pods_OTWL_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OTWL_Tracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B09B1E4203D430700D27CAE /* OTWL Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "OTWL Tracker.entitlements"; sourceTree = "<group>"; };
+		9B09B1E5203D4BE400D27CAE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9B09B1E7203FD7A900D27CAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		9B09B1EA203FEB4300D27CAE /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		9B09B1EC203FEE6E00D27CAE /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		9B8C6A592032F80A00D8C424 /* SingupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
+		9B9248542036FA2400836A27 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		9B9248552036FA2400836A27 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		9B9248562036FA2500836A27 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B92485B2036FD0600836A27 /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		9B9E032F2032E1ED001EDB50 /* OTWL Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTWL Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B9E03322032E1EE001EDB50 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9B9E03342032E1EE001EDB50 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B9E03342032E1EE001EDB50 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		9B9E03372032E1EE001EDB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B9E033A2032E1EE001EDB50 /* OTWL_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OTWL_Tracker.xcdatamodel; sourceTree = "<group>"; };
 		9B9E033C2032E1EE001EDB50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B9E033F2032E1EE001EDB50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B9E03412032E1EE001EDB50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B9E03472032E41B001EDB50 /* GradientLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientLayerView.swift; sourceTree = "<group>"; };
+		9B9E034A2032E442001EDB50 /* ShowAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowAlertView.swift; sourceTree = "<group>"; };
+		9B9E034B2032E442001EDB50 /* RoundedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		9B9E034C2032E442001EDB50 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9B9E034D2032E442001EDB50 /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
+		9B9E034E2032E442001EDB50 /* AppLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoader.swift; sourceTree = "<group>"; };
+		9B9E034F2032E443001EDB50 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		9B9E03502032E443001EDB50 /* RoundedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		9B9E03512032E443001EDB50 /* UserDefaultDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultDetails.swift; sourceTree = "<group>"; };
+		9B9E03522032E443001EDB50 /* RoundedImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
+		9B9E035D2032E457001EDB50 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9BCF1B5C2043DF1F0073CECF /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		9BEB343D2034042600E5A0C6 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		9BEB343F2034044A00E5A0C6 /* NotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		9BEB34412034119C00E5A0C6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9BEB3446203454D700E5A0C6 /* TrackingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewController.swift; sourceTree = "<group>"; };
+		9BEB34482035802000E5A0C6 /* TrackingCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingCellTableViewCell.swift; sourceTree = "<group>"; };
+		9BEB344A2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingDetailsViewController.swift; sourceTree = "<group>"; };
+		9BEB344C2035C8E000E5A0C6 /* StagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesCell.swift; sourceTree = "<group>"; };
+		9BEB345A2036EC2900E5A0C6 /* StagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagesTableViewCell.swift; sourceTree = "<group>"; };
+		F44614AE988110BBBA35D38A /* Pods-OTWL Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OTWL Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OTWL Tracker/Pods-OTWL Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +94,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B09B1E8203FD7A900D27CAE /* UserNotifications.framework in Frameworks */,
+				7FDA01A15ADBC88C6427F2ED /* Pods_OTWL_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B09B1E9203FEB1800D27CAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B09B1EA203FEB4300D27CAE /* Notifications.swift */,
+				9B09B1EC203FEE6E00D27CAE /* RealmService.swift */,
+				9BCF1B5C2043DF1F0073CECF /* ProfileModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B92485A2036FA2B00836A27 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				9B9248552036FA2400836A27 /* Helpers.swift */,
+				9B9248542036FA2400836A27 /* TableViewCell.swift */,
+				9B9248562036FA2500836A27 /* ViewController.swift */,
+				9B92485B2036FD0600836A27 /* HeaderCell.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
+		9B92485D203705F900836A27 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		9B9E03262032E1ED001EDB50 = {
 			isa = PBXGroup;
 			children = (
 				9B9E03312032E1ED001EDB50 /* OTWL Tracker */,
 				9B9E03302032E1ED001EDB50 /* Products */,
+				F45AB91AA57FF571C86BE7F9 /* Pods */,
+				ED1C8FCD7CF21E8BF51C7238 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +151,90 @@
 		9B9E03312032E1ED001EDB50 /* OTWL Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				9B9E03322032E1EE001EDB50 /* AppDelegate.swift */,
-				9B9E03342032E1EE001EDB50 /* ViewController.swift */,
-				9B9E03362032E1EE001EDB50 /* Main.storyboard */,
-				9B9E033C2032E1EE001EDB50 /* Assets.xcassets */,
-				9B9E033E2032E1EE001EDB50 /* LaunchScreen.storyboard */,
+				9B09B1E9203FEB1800D27CAE /* Model */,
+				9B09B1E5203D4BE400D27CAE /* GoogleService-Info.plist */,
+				9B09B1E4203D430700D27CAE /* OTWL Tracker.entitlements */,
 				9B9E03412032E1EE001EDB50 /* Info.plist */,
+				9B9E035F2032E597001EDB50 /* Controller */,
+				9B9E035C2032E44A001EDB50 /* DataManager */,
+				9B9E03492032E41E001EDB50 /* Helper */,
+				9B9E03322032E1EE001EDB50 /* AppDelegate.swift */,
+				9B9E03602032E5A1001EDB50 /* View */,
+				9B9E033C2032E1EE001EDB50 /* Assets.xcassets */,
 				9B9E03392032E1EE001EDB50 /* OTWL_Tracker.xcdatamodeld */,
 			);
 			path = "OTWL Tracker";
+			sourceTree = "<group>";
+		};
+		9B9E03492032E41E001EDB50 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9B9E034E2032E442001EDB50 /* AppLoader.swift */,
+				9B9E034D2032E442001EDB50 /* NavigationControllers.swift */,
+				9B9E034F2032E443001EDB50 /* RoundedButton.swift */,
+				9B9E03522032E443001EDB50 /* RoundedImage.swift */,
+				9B9E03502032E443001EDB50 /* RoundedTextField.swift */,
+				9B9E034B2032E442001EDB50 /* RoundedView.swift */,
+				9B9E034A2032E442001EDB50 /* ShowAlertView.swift */,
+				9B9E034C2032E442001EDB50 /* UIColor.swift */,
+				9B9E03512032E443001EDB50 /* UserDefaultDetails.swift */,
+				9B9E03472032E41B001EDB50 /* GradientLayerView.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9B9E035C2032E44A001EDB50 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				9B9E035D2032E457001EDB50 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		9B9E035F2032E597001EDB50 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9B92485D203705F900836A27 /* Menu */,
+				9B92485A2036FA2B00836A27 /* Tracking */,
+				9BEB34412034119C00E5A0C6 /* ProfileViewController.swift */,
+				9BEB343F2034044A00E5A0C6 /* NotificationCell.swift */,
+				9BEB343D2034042600E5A0C6 /* NotificationsViewController.swift */,
+				9B9E03342032E1EE001EDB50 /* SignInViewController.swift */,
+				9B8C6A592032F80A00D8C424 /* SingupViewController.swift */,
+				9BEB3446203454D700E5A0C6 /* TrackingViewController.swift */,
+				9BEB34482035802000E5A0C6 /* TrackingCellTableViewCell.swift */,
+				9BEB344A2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift */,
+				9BEB344C2035C8E000E5A0C6 /* StagesCell.swift */,
+				9BEB345A2036EC2900E5A0C6 /* StagesTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9B9E03602032E5A1001EDB50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9B9E03362032E1EE001EDB50 /* Main.storyboard */,
+				9B9E033E2032E1EE001EDB50 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ED1C8FCD7CF21E8BF51C7238 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B09B1E7203FD7A900D27CAE /* UserNotifications.framework */,
+				8B0222BA3E7325E061330416 /* Pods_OTWL_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F45AB91AA57FF571C86BE7F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F44614AE988110BBBA35D38A /* Pods-OTWL Tracker.debug.xcconfig */,
+				167C334B81B53DB7D1EEF950 /* Pods-OTWL Tracker.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +244,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B9E03442032E1EE001EDB50 /* Build configuration list for PBXNativeTarget "OTWL Tracker" */;
 			buildPhases = (
+				36C0CE6EF083F04221EA7546 /* [CP] Check Pods Manifest.lock */,
 				9B9E032B2032E1ED001EDB50 /* Sources */,
 				9B9E032C2032E1ED001EDB50 /* Frameworks */,
 				9B9E032D2032E1ED001EDB50 /* Resources */,
+				E55EC1A2A1208C766D746ECB /* [CP] Embed Pods Frameworks */,
+				53EDF0B088B35B6D6805F070 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -100,6 +273,14 @@
 					9B9E032E2032E1ED001EDB50 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -129,19 +310,117 @@
 				9B9E03402032E1EE001EDB50 /* LaunchScreen.storyboard in Resources */,
 				9B9E033D2032E1EE001EDB50 /* Assets.xcassets in Resources */,
 				9B9E03382032E1EE001EDB50 /* Main.storyboard in Resources */,
+				9B09B1E6203D4BE500D27CAE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36C0CE6EF083F04221EA7546 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OTWL Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		53EDF0B088B35B6D6805F070 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OTWL Tracker/Pods-OTWL Tracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E55EC1A2A1208C766D746ECB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OTWL Tracker/Pods-OTWL Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OTWL Tracker/Pods-OTWL Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9B9E032B2032E1ED001EDB50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B9E03482032E41B001EDB50 /* GradientLayerView.swift in Sources */,
+				9B9E035A2032E443001EDB50 /* UserDefaultDetails.swift in Sources */,
+				9B9E03582032E443001EDB50 /* RoundedButton.swift in Sources */,
+				9BEB345B2036EC2900E5A0C6 /* StagesTableViewCell.swift in Sources */,
+				9B9E035E2032E457001EDB50 /* DataManager.swift in Sources */,
+				9B09B1ED203FEE6E00D27CAE /* RealmService.swift in Sources */,
+				9B9E03552032E443001EDB50 /* UIColor.swift in Sources */,
+				9B9E03532032E443001EDB50 /* ShowAlertView.swift in Sources */,
+				9BEB3447203454D700E5A0C6 /* TrackingViewController.swift in Sources */,
+				9B09B1EB203FEB4300D27CAE /* Notifications.swift in Sources */,
+				9B9248592036FA2500836A27 /* ViewController.swift in Sources */,
+				9BEB34422034119D00E5A0C6 /* ProfileViewController.swift in Sources */,
+				9B9248572036FA2500836A27 /* TableViewCell.swift in Sources */,
+				9B9E03542032E443001EDB50 /* RoundedView.swift in Sources */,
 				9B9E033B2032E1EE001EDB50 /* OTWL_Tracker.xcdatamodeld in Sources */,
-				9B9E03352032E1EE001EDB50 /* ViewController.swift in Sources */,
+				9BCF1B5D2043DF1F0073CECF /* ProfileModel.swift in Sources */,
+				9B92485C2036FD0600836A27 /* HeaderCell.swift in Sources */,
+				9B9E035B2032E443001EDB50 /* RoundedImage.swift in Sources */,
+				9B9248582036FA2500836A27 /* Helpers.swift in Sources */,
+				9B9E03562032E443001EDB50 /* NavigationControllers.swift in Sources */,
+				9BEB34492035802000E5A0C6 /* TrackingCellTableViewCell.swift in Sources */,
+				9B8C6A5A2032F80A00D8C424 /* SingupViewController.swift in Sources */,
+				9BEB344B2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift in Sources */,
+				9B9E03592032E443001EDB50 /* RoundedTextField.swift in Sources */,
+				9B9E03572032E443001EDB50 /* AppLoader.swift in Sources */,
+				9B9E03352032E1EE001EDB50 /* SignInViewController.swift in Sources */,
+				9BEB344D2035C8E000E5A0C6 /* StagesCell.swift in Sources */,
 				9B9E03332032E1EE001EDB50 /* AppDelegate.swift in Sources */,
+				9BEB343E2034042600E5A0C6 /* NotificationsViewController.swift in Sources */,
+				9BEB34402034044A00E5A0C6 /* NotificationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,14 +555,18 @@
 		};
 		9B9E03452032E1EE001EDB50 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F44614AE988110BBBA35D38A /* Pods-OTWL Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "OTWL Tracker/OTWL Tracker.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9ECRET98Q;
+				DEVELOPMENT_TEAM = RY9E5VL5NF;
 				INFOPLIST_FILE = "OTWL Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.OceanTrasnworld.OTWL-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.OceanTrasnworld.OTWLTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -291,14 +574,18 @@
 		};
 		9B9E03462032E1EE001EDB50 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 167C334B81B53DB7D1EEF950 /* Pods-OTWL Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "OTWL Tracker/OTWL Tracker.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9ECRET98Q;
+				DEVELOPMENT_TEAM = RY9E5VL5NF;
 				INFOPLIST_FILE = "OTWL Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.OceanTrasnworld.OTWL-Tracker";
+				PRODUCT_BUNDLE_IDENTIFIER = com.OceanTrasnworld.OTWLTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
