@@ -48,76 +48,14 @@ class SingupViewController: UIViewController,UITextFieldDelegate,ShowAlertView{
         self.companyNameTxt.delegate = self
         self.mobileTxt.delegate = self
         self.prefixTxt.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
-        
     }
-    
-    
-    
-    @objc  func keyboardWillShow(_ notification:Notification) {
-        adjustingHeight(true, notification: notification)
-    }
-    
-    @objc func keyboardWillHide(_ notification:Notification) {
-        adjustingHeight(false, notification: notification)
-    }
-    
-    @objc func keyboardWillChangeFrame(_ notification: Notification) {
-        adjustingHeight(false, notification: notification)
-    }
-    
-    func adjustingHeight(_ show:Bool, notification:Notification) {
-        
-        var userInfo = (notification as NSNotification).userInfo!
-        let keyboardFrame:CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        let animationDurarion = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! TimeInterval
-        let changeInHeight = (keyboardFrame.height ) * (show ? 1 : 0)
-        //        self.bottomSpace.constant = changeInHeight
-        
-        UIView.animate(withDuration: animationDurarion, animations: { () -> Void in
-            self.view.layoutIfNeeded()
-        })
-    }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        emailTxt.transform = CGAffineTransform(translationX: -256, y: -256)
-        passwordTxt.transform = CGAffineTransform(translationX: 256, y: -256)
-        mobileTxt.transform = CGAffineTransform(translationX: -256, y: -256)
-        prefixTxt.transform = CGAffineTransform(translationX: -256, y: -256)
-
-        fullNameTxt.transform = CGAffineTransform(translationX: 256, y: -256)
-        companyNameTxt.transform = CGAffineTransform(translationX: -256, y: -256)
-        
-        
-        //                emailTxt.transform = CGAffineTransform(scaleX: 2, y: 2)
-        //                passwordTxt.transform = CGAffineTransform(scaleX: 2, y: 2)
-        //                mobileTxt.transform = CGAffineTransform(scaleX: 2, y: 2)
-        //                fullNameTxt.transform = CGAffineTransform(scaleX: 2, y: 2)
-        //                companyNameTxt.transform = CGAffineTransform(scaleX: 2, y: 2)
-        
-        
-        //        signup.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         signup.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-        
         UIView.animate(withDuration: 0.4) {
-            //            self.emailTxt.transform = CGAffineTransform.identity
-            //            self.passwordTxt.transform = CGAffineTransform.identity
             self.mobileTxt.transform = CGAffineTransform.identity
             self.prefixTxt.transform = CGAffineTransform.identity
-
-            //            self.fullNameTxt.transform = CGAffineTransform.identity
-            //            self.companyNameTxt.transform = CGAffineTransform.identity
-            //            self.signup.transform = CGAffineTransform.identity
         }
         
         
@@ -180,18 +118,18 @@ class SingupViewController: UIViewController,UITextFieldDelegate,ShowAlertView{
                 "MobileNumber":"\(self.mobileTxt.text!)",
                 "Password":"\(self.passwordTxt.text!)",    "CompanyName":"\(self.companyNameTxt.text!)",
                 "EmailID":"\(self.emailTxt.text!)"]
-            
-            //            self.userDefaultDetails.saveUserDetails(dic:dic)
             let loader = AppLoader()
             loader.show();
-            let url = "http://apiocean20180207065702.azurewebsites.net/api/ocean/usr_signup"
+            let api = APIConstant()
+            let url = api.developemntURL + "usr_signup"
+            //            let url = "http://apiocean20180207065702.azurewebsites.net/api/ocean"
             let paramString = "usrr_fnm=\(fullNameTxt.text!)" + "&usrr_mb_no=\(mobileTxt.text!)" + "&usrr_psw=\(passwordTxt.text!)" + "&usrr_eml=\(emailTxt.text!)" +
                 "&usrr_mb_pfx=\(prefixTxt.text!)" + "&ussr_org_name=\(companyNameTxt.text!)"
             print(paramString)
             DataManager.getJSONFromURL(url, param:paramString, completion: { (data, error) in                
                 let decoder = JSONDecoder()
                 do {
-                   
+                    
                     let json = try decoder.decode(Signup.self, from: data!)
                     print(json)
                     if json.db_status == true{

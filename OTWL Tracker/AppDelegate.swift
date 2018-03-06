@@ -12,31 +12,43 @@ import Firebase
 import UserNotifications
 import FirebaseMessaging
 import FirebaseInstanceID
+import RealmSwift
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+//    let realmService = RealmService()
     
     var userDefaultDetails = UserDefaultDetails()
     var navigationControllers = NavigationControllers()
-    
+    var notifications = Notifications()
+    let kUserDefault = UserDefaults.standard
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        let navStyles = UINavigationBar.appearance()
+        // This will set the color of the text for the back buttons.
+        navStyles.tintColor = .white
+        // This will set the background color for navBar
+        //        navStyles.barTintColor = .black
         UIApplication.shared.statusBarStyle = .lightContent
         //        let app = AppColor()
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
-//        Messaging.messaging().delegate = self
+        //        Messaging.messaging().delegate = self
         registerForPushNotifications()
         NotificationCenter.default.addObserver(self, selector:#selector(self.refreshToken(notification:)), name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
         UITabBar.appearance().barTintColor = UIColor.white
+        let attributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
         if userDefaultDetails.isloggedIn() == true{
             self.navigationControllers.navigateTabbar()
         }else{
             self.navigationControllers.navigateSignIn()
         }
-       return true
+        return true
     }
     
     func registerForPushNotifications() {
@@ -65,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Firebase registration token: \(fcmToken)")
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
-
+        
         // TODO: If necessary send token to application server.
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
@@ -80,22 +92,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Device Token: \(token)")
         let userDefaultDetails = UserDefaultDetails()
         userDefaultDetails.saveDeviceToken(deviceToken:token)
-        
     }
     
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Failed to register: \(error)")
     }
-    
-
-    // Push notification received
-//    func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
-//        // Print notification payload data
-//        print("Push notification received: \(data)")
-//        print([AnyHashable("aps")])      // prints "an Int"
-//    }
-    
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         // If you are receiving a notification message while your app is in the background,
@@ -109,12 +111,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let messageID = userInfo["gcm.message_id"] {
             print("Message ID: \(messageID)")
         }
-        
         // Print full message.
-        print(userInfo)
-        completionHandler(UIBackgroundFetchResult.newData)
-    }
+        //        print(userInfo)
+        let aps = userInfo["aps"]!
+        let jsonResult = aps as! Dictionary<String, AnyObject>
+        print("jsonResult:\(jsonResult)")
+        let alert = jsonResult["alert"]
+        print(alert!)
+        let title = alert!["title"]
+        let body = alert!["body"]
+        print(title!!,body!!)
+        
+    
+//        notifications.body = body! as! String
+//        notifications.title = title! as! String
+//        appDelrealm.beginWrite()
 
+//        var notificationData = NSMutableDictionary()
+//        kUserDefault.setValue(alert, forKey: "kNOTIFICATION_LIST")
+//        kUserDefault.synchronize()
+        let tab = UITabBarController()
+        tab.selectedIndex = 0
+//        notifications.writeNotifications()
+        completionHandler(UIBackgroundFetchResult.newData)
+        
+    }
     //Firebase
     
     

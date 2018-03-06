@@ -9,10 +9,15 @@
 import Foundation
 import KRProgressHUD
 import KRActivityIndicatorView
+
+
+
 class AppLoader {
     var app = AppColor()
+    
+    let bg = UIColor(patternImage: UIImage(named: "9")!)
     func show (){
-        let headColor = app.hexStringToUIColor(hex: "0090CF")
+        let headColor = app.hexStringToUIColor(hex: "87ceeb")
         let tailColor = UIColor.red
         KRProgressHUD.show()
         KRProgressHUD.set(activityIndicatorViewStyle: .gradationColor(head: headColor, tail: tailColor))

@@ -12,6 +12,10 @@
 		9B09B1E8203FD7A900D27CAE /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B09B1E7203FD7A900D27CAE /* UserNotifications.framework */; };
 		9B09B1EB203FEB4300D27CAE /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09B1EA203FEB4300D27CAE /* Notifications.swift */; };
 		9B09B1ED203FEE6E00D27CAE /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B09B1EC203FEE6E00D27CAE /* RealmService.swift */; };
+		9B11EA6020468545009381FB /* SampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B11EA5F20468545009381FB /* SampleTableViewController.swift */; };
+		9B4C55CB2046A3BC00ECF74B /* RemarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C55CA2046A3BC00ECF74B /* RemarksViewController.swift */; };
+		9B4C55CD2046A53400ECF74B /* SubStagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B4C55CC2046A53400ECF74B /* SubStagesViewController.swift */; };
+		9B6DE366204A9A8C006F0803 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6DE365204A9A8B006F0803 /* APIConstant.swift */; };
 		9B8C6A5A2032F80A00D8C424 /* SingupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8C6A592032F80A00D8C424 /* SingupViewController.swift */; };
 		9B9248572036FA2500836A27 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9248542036FA2400836A27 /* TableViewCell.swift */; };
 		9B9248582036FA2500836A27 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9248552036FA2400836A27 /* Helpers.swift */; };
@@ -53,6 +57,10 @@
 		9B09B1E7203FD7A900D27CAE /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		9B09B1EA203FEB4300D27CAE /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		9B09B1EC203FEE6E00D27CAE /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		9B11EA5F20468545009381FB /* SampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleTableViewController.swift; sourceTree = "<group>"; };
+		9B4C55CA2046A3BC00ECF74B /* RemarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemarksViewController.swift; sourceTree = "<group>"; };
+		9B4C55CC2046A53400ECF74B /* SubStagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubStagesViewController.swift; sourceTree = "<group>"; };
+		9B6DE365204A9A8B006F0803 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
 		9B8C6A592032F80A00D8C424 /* SingupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingupViewController.swift; sourceTree = "<group>"; };
 		9B9248542036FA2400836A27 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9B9248552036FA2400836A27 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -115,10 +123,12 @@
 		9B92485A2036FA2B00836A27 /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				9B11EA5F20468545009381FB /* SampleTableViewController.swift */,
 				9B9248552036FA2400836A27 /* Helpers.swift */,
 				9B9248542036FA2400836A27 /* TableViewCell.swift */,
 				9B9248562036FA2500836A27 /* ViewController.swift */,
 				9B92485B2036FD0600836A27 /* HeaderCell.swift */,
+				9B4C55CC2046A53400ECF74B /* SubStagesViewController.swift */,
 			);
 			path = Tracking;
 			sourceTree = "<group>";
@@ -179,6 +189,7 @@
 				9B9E034C2032E442001EDB50 /* UIColor.swift */,
 				9B9E03512032E443001EDB50 /* UserDefaultDetails.swift */,
 				9B9E03472032E41B001EDB50 /* GradientLayerView.swift */,
+				9B6DE365204A9A8B006F0803 /* APIConstant.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -206,6 +217,7 @@
 				9BEB344A2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift */,
 				9BEB344C2035C8E000E5A0C6 /* StagesCell.swift */,
 				9BEB345A2036EC2900E5A0C6 /* StagesTableViewCell.swift */,
+				9B4C55CA2046A3BC00ECF74B /* RemarksViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -357,6 +369,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OTWL Tracker/Pods-OTWL Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AEAccordion/AEAccordion.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
@@ -369,6 +382,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AEAccordion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
@@ -394,6 +408,7 @@
 				9B9E03482032E41B001EDB50 /* GradientLayerView.swift in Sources */,
 				9B9E035A2032E443001EDB50 /* UserDefaultDetails.swift in Sources */,
 				9B9E03582032E443001EDB50 /* RoundedButton.swift in Sources */,
+				9B11EA6020468545009381FB /* SampleTableViewController.swift in Sources */,
 				9BEB345B2036EC2900E5A0C6 /* StagesTableViewCell.swift in Sources */,
 				9B9E035E2032E457001EDB50 /* DataManager.swift in Sources */,
 				9B09B1ED203FEE6E00D27CAE /* RealmService.swift in Sources */,
@@ -405,6 +420,7 @@
 				9BEB34422034119D00E5A0C6 /* ProfileViewController.swift in Sources */,
 				9B9248572036FA2500836A27 /* TableViewCell.swift in Sources */,
 				9B9E03542032E443001EDB50 /* RoundedView.swift in Sources */,
+				9B4C55CD2046A53400ECF74B /* SubStagesViewController.swift in Sources */,
 				9B9E033B2032E1EE001EDB50 /* OTWL_Tracker.xcdatamodeld in Sources */,
 				9BCF1B5D2043DF1F0073CECF /* ProfileModel.swift in Sources */,
 				9B92485C2036FD0600836A27 /* HeaderCell.swift in Sources */,
@@ -415,11 +431,13 @@
 				9B8C6A5A2032F80A00D8C424 /* SingupViewController.swift in Sources */,
 				9BEB344B2035C4CE00E5A0C6 /* TrackingDetailsViewController.swift in Sources */,
 				9B9E03592032E443001EDB50 /* RoundedTextField.swift in Sources */,
+				9B4C55CB2046A3BC00ECF74B /* RemarksViewController.swift in Sources */,
 				9B9E03572032E443001EDB50 /* AppLoader.swift in Sources */,
 				9B9E03352032E1EE001EDB50 /* SignInViewController.swift in Sources */,
 				9BEB344D2035C8E000E5A0C6 /* StagesCell.swift in Sources */,
 				9B9E03332032E1EE001EDB50 /* AppDelegate.swift in Sources */,
 				9BEB343E2034042600E5A0C6 /* NotificationsViewController.swift in Sources */,
+				9B6DE366204A9A8C006F0803 /* APIConstant.swift in Sources */,
 				9BEB34402034044A00E5A0C6 /* NotificationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

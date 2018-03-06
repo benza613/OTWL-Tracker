@@ -9,15 +9,32 @@
 import Foundation
 import RealmSwift
 class Notifications:Object{
-    @objc dynamic var body:String = ""
-    @objc dynamic var title:String = ""
+    @objc dynamic var body = ""
+    @objc dynamic var title  = ""
+    @objc dynamic var notificationTime = ""
+    @objc dynamic var nt_job_id:String = ""
+    @objc dynamic var nt_flag:String = ""
     
-//    @objc dynamic var sound:String = ""
-    @objc dynamic var notificationTime:String = ""
-    convenience init(body:String,title:String,notificationTime:String) {
+    convenience init(body:String,title:String,notificationTime:String,nt_job_id:String,nt_flag:String) {
         self.init()
         self.body = body
         self.title = title
         self.notificationTime = notificationTime
+        self.nt_job_id = nt_job_id
+        self.nt_flag = nt_flag
+        
     }
 }
+extension Notifications{
+//    func writeNotifications(){
+//        
+//        do {
+//            try appDelrealm.write{
+//                appDelrealm.add(self)
+//            }            
+//        }catch let error {
+//            print(error)
+//        }
+//    }
+}
+

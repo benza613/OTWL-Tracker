@@ -87,11 +87,12 @@ class SignInViewController: UIViewController,UITextFieldDelegate,ShowAlertView{
         super.viewWillAppear(true)
         
         //        emailTxt.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        emailTxt.transform = CGAffineTransform(translationX: -256, y: -256)
+//        emailTxt.transform = CGAffineTransform(translationX: -256, y: -256)
         
         //        passwordTxt.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         //        passwordTxt.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        passwordTxt.transform = CGAffineTransform(translationX: 256, y: -256)
+//        passwordTxt.transform = CGAffineTransform(translationX: 256, y: -256)
+        
         //        signIn.transform = CGAffineTransform(translationX: -256, y: -256)
         //        signIn.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
         signIn.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
@@ -125,7 +126,8 @@ class SignInViewController: UIViewController,UITextFieldDelegate,ShowAlertView{
             let loader = AppLoader()
             loader.show();
             let navigationController = NavigationControllers()
-            let url = "http://apiocean20180207065702.azurewebsites.net/api/ocean/usr_signin"
+            let api = APIConstant()
+            let url = api.developemntURL + "usr_signin"
             let userDefaultDetails = UserDefaultDetails()
             let deviceToken = userDefaultDetails.getDeviceToken()
             let firebaseToken = userDefaultDetails.getFirebaseToken()
@@ -155,19 +157,20 @@ class SignInViewController: UIViewController,UITextFieldDelegate,ShowAlertView{
         }
     }
     func writeProfileData(json:SignIn){
-        let userinfo = ProfileModel()
-        userinfo.db_user_email = json.db_user_email
-        userinfo.db_user_name = json.db_user_name
-        userinfo.db_usermb_pfx = json.db_usermb_pfx
-        userinfo.db_usermb_no = json.db_usermb_no
-        userinfo.db_user_org = json.db_user_org
-        userinfo.db_auth_token = json.db_auth_token
-        let realm = try! Realm()
+//        let userinfo = ProfileModel()
+        let kUserDefault = UserDefaults.standard
+        kUserDefault.set(json.db_auth_token, forKey: "auth_token")
+        kUserDefault.synchronize()
+//        userinfo.db_user_email = json.db_user_email
+//        userinfo.db_user_name = json.db_user_name
+//        userinfo.db_usermb_pfx = json.db_usermb_pfx
+//        userinfo.db_usermb_no = json.db_usermb_no
+//        userinfo.db_user_org = json.db_user_org
+//        userinfo.db_auth_token = json.db_auth_token
         // Persist your data easily
-        try! realm.write {
-            realm.add(userinfo)
-        }
-        
+//        try! appDelrealm.write {
+//            appDelrealm.add(userinfo)
+//        }
     }
 }
 

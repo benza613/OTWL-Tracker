@@ -13,6 +13,12 @@ class StagesCell: UITableViewCell {
     @IBOutlet weak var notificationBackgroundView: UIView!
     @IBOutlet weak var a1: UILabel!
     @IBOutlet weak var a2: UILabel!
+    @IBOutlet weak var SD_Name: UILabel!
+    @IBOutlet weak var Remark: UILabel!
+    @IBOutlet weak var RemarkDate: UILabel!
+    @IBOutlet weak var SD_Status: UILabel!
+    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

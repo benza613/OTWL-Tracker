@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import AEAccordion
 struct Tracking:Decodable{
     var db_status:String
     //    var db_msg:String
@@ -46,8 +47,8 @@ struct JobStages:Decodable{
 
 class TrackingViewController: UIViewController,ShowAlertView,UISearchBarDelegate{
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchbar: UISearchBar!
-    
+    @IBOutlet weak var colorrepresentation:UIView!
+
     let app = AppColor()
     let loader = AppLoader()
     var trackedData = [Db_data]()
@@ -58,22 +59,38 @@ class TrackingViewController: UIViewController,ShowAlertView,UISearchBarDelegate
     var OA_Coloader_Courier:String?
     var SL_AL:String?
     var Customer:String?
+    var INCO:String?
+    var Line_Name:String?
+    var FRT_CLR:String?
     
+    var SST_name:String?
     
     var POL1:String!
+    var POD2:String!
+    
     var JOBID:String!
     var POL_Time1:String!
     var POD_Time1:String!
     var filtered_Data = [Db_data]()
     var searchActive : Bool = false
-    
+    var searchBar:UISearchBar!
+    let screenSize = UIScreen.main.bounds
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar = UISearchBar(frame: CGRect(x:0, y:0, width:screenSize.width - 16, height:25))
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.rowHeight = 130
-        self.searchbar.delegate = self
-        
+        self.searchBar.delegate = self
+        let leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
+        searchBar.placeholder = "Search here"
+        self.view.backgroundColor = loader.bg
+        tableView.keyboardDismissMode = .onDrag
+        let modelName = UIDevice.current.modelName
+        searchBar.returnKeyType = UIReturnKeyType.done
+        self.tableView.contentInset = UIEdgeInsetsMake(66.0, 0.0, 0.0, 0.0)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -91,11 +108,13 @@ class TrackingViewController: UIViewController,ShowAlertView,UISearchBarDelegate
         loader.show();
         let navigationController = NavigationControllers()
         //        let url = "http://apiocean20180207065702.azurewebsites.net/api/ocean/track_data_get"
-        let url = "http://apiocean20180207065702.azurewebsites.net/api/ocean/sp_MA_GetJobs"
-        let userinfo = profileUserInfo()
-        let param = "auth_token=\(userinfo.db_auth_token)"
+        let api = APIConstant()
+        let url = api.developemntURL + "sp_MA_GetJobs"
+        let userDefaultDetails = UserDefaultDetails()
+        let deviceToken = userDefaultDetails.getDeviceToken()
+        let kUserDefault = UserDefaults.standard
+        let param = "auth_token=\(kUserDefault.value(forKey: "auth_token")!)"
         DataManager.getJSONFromURL(url, param:param, completion: { (data, error) in
-            //                print(data)
             let decoder = JSONDecoder()
             do {
                 let json = try decoder.decode(Tracking.self, from: data!)
@@ -124,7 +143,20 @@ class TrackingViewController: UIViewController,ShowAlertView,UISearchBarDelegate
 extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        var numOfSection: NSInteger = 0
+        if trackedData.count > 0   {
+            self.tableView.backgroundView = nil
+            numOfSection = 1
+        }
+        else
+        {
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x:0, y:0, width:self.tableView.bounds.size.width, height:self.tableView.bounds.size.height))
+            noDataLabel.text = "No Data Available"
+            noDataLabel.textColor = UIColor.white
+            noDataLabel.textAlignment = NSTextAlignment.center
+            self.tableView.backgroundView = noDataLabel
+        }
+        return numOfSection
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -143,16 +175,16 @@ extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
             }else{
                 if data.SST_name == "Air-Cargo"{
                     cell.statusImage.image = UIImage(named:"air-transport")
-                    cell.POL.text  = "POD : \(data.POD)"
-                    cell.POD.text = "FPOD : \(data.FPOD)"
+                    cell.POL.text  = "POD :\(data.POL)"
+                    cell.POD.text = "FPOD :\(data.FPOD)"
                     cell.Job_Id.text = "Air Line : \(data.Line_Name)"
                     //            cell.POD_Time.text = "\(data.JobType)"
                     cell.POL_Time.text = "INCO : \(data.INCO)"
                 }
                 else{
                     cell.statusImage.image = UIImage(named:"ocean-transportation")
-                    cell.POL.text  = "POD : \(data.POD)"
-                    cell.POD.text = "FPOD : \(data.FPOD)"
+                    cell.POL.text  = "POD :\(data.POL)"
+                    cell.POD.text = "FPOD :\(data.FPOD)"
                     cell.Job_Id.text = "Shipping Line : \(data.Line_Name)"
                     //            cell.POD_Time.text = "\(data.JobType)"
                     cell.POL_Time.text = "INCO : \(data.INCO)"
@@ -163,35 +195,49 @@ extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
             
             if data.SST_name == "Air-Cargo"{
                 cell.statusImage.image = UIImage(named:"air-transport")
-                cell.POL.text  = "POD : \(data.POD)"
-                cell.POD.text = "FPOD : \(data.FPOD)"
+                cell.POL.text  = "POD :\(data.POL)"
+                cell.POD.text = "FPOD :\(data.FPOD)"
                 cell.Job_Id.text = "Air Line : \(data.Line_Name)"
                 //            cell.POD_Time.text = "\(data.JobType)"
                 cell.POL_Time.text = "INCO : \(data.INCO)"
+                
+                if data.FRT_CLR == "FRT"{
+                    //cell.icon.image = UIImage(named:"project_cargo-icon")
+                    cell.icon.tintColor = app.hexStringToUIColor(hex: "4C7FFF")
+                    cell.Port_Info.text = data.FRT_CLR
+                }
+                else if data.FRT_CLR == "CLR"{
+                    cell.icon.image = UIImage(named:"custom_icon")
+                    cell.icon.tintColor = app.hexStringToUIColor(hex: "4C7FFF")
+                    cell.Port_Info.text = data.FRT_CLR
+                    
+                }
+                
             }
             else{
                 cell.statusImage.image = UIImage(named:"ocean-transportation")
-                cell.POL.text  = "POD : \(data.POD)"
+                cell.POL.text  = "POD : \(data.POL)"
                 cell.POD.text = "FPOD : \(data.FPOD)"
                 cell.Job_Id.text = "Shipping Line : \(data.Line_Name)"
                 //            cell.POD_Time.text = "\(data.JobType)"
                 cell.POL_Time.text = "INCO : \(data.INCO)"
                 
+                if data.FRT_CLR == "FRT"{
+                    //                    cell.icon.image = UIImage(named:"project_cargo-icon")
+                    cell.icon.tintColor = app.hexStringToUIColor(hex: "4C7FFF")
+                    cell.Port_Info.text = data.FRT_CLR
+                }
+                else if data.FRT_CLR == "CLR"{
+                    cell.icon.image = UIImage(named:"custom_icon")
+                    cell.icon.tintColor = app.hexStringToUIColor(hex: "4C7FFF")
+                    cell.Port_Info.text = data.FRT_CLR
+                    
+                }
+                
+                
             }
         }
         
-        
-        if data.FRT_CLR == "FRT"{
-            cell.icon.image = UIImage(named:"project_cargo-icon")
-            cell.icon.tintColor = app.hexStringToUIColor(hex: "4C7FFF")
-            cell.Port_Info.text = data.FRT_CLR
-        }
-        else if data.FRT_CLR == "CLR"{
-            cell.icon.image = UIImage(named:"custom_icon")
-            cell.icon.tintColor = app.hexStringToUIColor(hex: "4C7FFF")
-            cell.Port_Info.text = data.FRT_CLR
-            
-        }
         
         if data.JobType == "IMP"{
             cell.notificationBackgroundView.backgroundColor = UIColor.white
@@ -236,18 +282,17 @@ extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
         }
         if data.SST_name == "Air-Cargo"{
             cell.statusImage.image = UIImage(named:"air-transport")
-            cell.POL.text  = "POD : \(data.POD)"
-            cell.POD.text = "FPOD : \(data.FPOD)"
-            cell.Job_Id.text = "Air Line : \(data.Line_Name)"
+            cell.POL.text  = "POD :\(data.POL)"
+            cell.POD.text = "FPOD :\(data.FPOD)"
+            cell.Job_Id.text = "Air Line :\(data.Line_Name)"
             //            cell.POD_Time.text = "\(data.JobType)"
             cell.POL_Time.text = "INCO : \(data.INCO)"
         }
         else{
             cell.statusImage.image = UIImage(named:"ocean-transportation")
-            cell.POL.text  = "POD : \(data.POD)"
-            cell.POD.text = "FPOD : \(data.FPOD)"
+            cell.POL.text  = "POD :\(data.POL)"
+            cell.POD.text = "FPOD :\(data.FPOD)"
             cell.Job_Id.text = "Shipping Line : \(data.Line_Name)"
-            //            cell.POD_Time.text = "\(data.JobType)"
             cell.POL_Time.text = "INCO : \(data.INCO)"
             
         }
@@ -258,10 +303,16 @@ extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data  = trackedData[indexPath.row]
-        JOBID = data.POD
+        JOBID = data.JobID
+        POL1 = data.POL
+        POD2 = data.FPOD
+        SL_AL = data.Line_Name
+        INCO = data.INCO
+        FRT_CLR = data.FRT_CLR
+        SST_name = data.SST_name
+        
         DispatchQueue.main.async {
-            //
-            self.performSegue(withIdentifier: "JobStages", sender: nil)            
+            self.performSegue(withIdentifier: "JobStages", sender: nil)
         }
     }
     
@@ -269,18 +320,13 @@ extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "JobStages" {
             let nextScene =  segue.destination as! TrackingDetailsViewController
-            //            nextScene.jobStages = jobStages
-            //            nextScene.Port_Info = Port_Info
-            //            nextScene.OA_Coloader_Courier = OA_Coloader_Courier
-            //            nextScene.SL_AL = SL_AL
-            //            nextScene.Customer = Customer
-            //            nextScene.POL = POL1
-            //            //            nextScene.POD = POD1
-            //            nextScene.POD_Time = POD_Time1
-            //            nextScene.POL_Time = POL_Time1
+            nextScene.POD = POD2
+            nextScene.POL = POL1
             nextScene.JOBID = JOBID
-            
-            
+            nextScene.SL_AL = SL_AL
+            nextScene.INCO = INCO
+            nextScene.FRT_CLR = FRT_CLR
+            nextScene.SST_name = SST_name
         }
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -291,22 +337,6 @@ extension TrackingViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
 }
-
-//extension TrackingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return jobStages.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-////        cell.
-//        return cell
-//    }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
-//    }
-//}
-
 extension TrackingViewController{
     // MARK: - Searchbar Delegate methods
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -328,7 +358,8 @@ extension TrackingViewController{
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filtered_Data = trackedData.filter({ (model:Db_data) -> Bool in
-            return model.FRT_CLR.lowercased().range(of:searchText.lowercased()) != nil
+            return model.FRT_CLR.lowercased().range(of:searchText.lowercased()) != nil || model.Line_Name.lowercased().range(of:searchText.lowercased()) != nil || model.POD.lowercased().range(of:searchText.lowercased()) != nil ||
+                model.POL.lowercased().range(of:searchText.lowercased()) != nil || model.FPOD.lowercased().range(of:searchText.lowercased()) != nil
         })
         if searchText != ""{
             searchActive = true
